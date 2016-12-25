@@ -1,0 +1,1159 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>My Smart Deal : online Best Deal of the Day. </title> 
+<meta charset="UTF-8">
+<meta name="description" content="Best Deal of the Day - Get Best Discounts, Today Deals, Best Offers only at my Deal">
+
+<meta name="keywords" content=" " >
+<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+
+
+<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBjhvbnk-r5zFugnY1ZX45I8yLo_wQznDM",
+    authDomain: "zooperdeal.firebaseapp.com",
+    databaseURL: "https://zooperdeal.firebaseio.com",
+    storageBucket: "zooperdeal.appspot.com",
+    messagingSenderId: "952066001423"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script type="text/javascript">
+  <!--
+  if (screen.width <= 800) {
+    window.location = "http://mysmartdeal1.ucoz.net";
+  }
+  //-->
+</script>
+
+
+<script type="text/javascript">
+            var picPaths = ['http://mysmartdeal.ucoz.net/testimage1.png','http://mysmartdeal.ucoz.net/testimage2.png','http://mysmartdeal.ucoz.net/testimage3.png'];
+            var curPic = -1;
+            //preload the images for smooth animation
+            var imgO = new Array();
+            for(i=0; i < picPaths.length; i++) {
+                imgO[i] = new Image();
+                imgO[i].src = picPaths[i];
+            }
+
+            function swapImage() {
+                curPic = (++curPic > picPaths.length-1)? 0 : curPic;
+                imgCont.src = imgO[curPic].src;
+                setTimeout(swapImage,4000);
+            }
+
+            window.onload=function() {
+                imgCont = document.getElementById('imgBanner');
+                swapImage();
+            }
+        </script>
+
+
+
+
+
+<style> 
+body {font-family: "Lato", sans-serif;}
+
+a1 {color:red;}
+#header {
+    background-color:white;
+    color:Black;
+    width:15px;
+    font-size:30px;
+    padding:2px; }
+
+.button {
+    background-color: #6699ff;
+    border: none;
+    color: white;
+    padding: 10px 84px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.dropbtn {
+    background-color: #6699ff;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: White;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 1px rgba(0,0,0,0.2);
+}
+
+
+
+.dropdown-content a {
+    color: black;
+    padding: 8px 4px;
+    text-decoration: none;
+    display:block ;
+}
+
+.dropdown-content a:hover {background-color: #6699ff;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #004de6;
+}
+
+#myDIV {float:left;
+    height: 100%;
+    width: 20%;
+    overflow: auto;
+}
+
+#content {
+    height: 800px;
+    width: 2000px;
+    background-color:white;
+}
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 20%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#line { color:white;
+ font-size:100%; 
+ text-align: left;}
+.overlay {
+    height:420px;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 100px;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: #e68a00;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 8%;
+    width: 100%;
+    text-align: center;
+    margin-top: 0px;
+}
+
+.overlay a {
+    padding: 0px;
+    text-decoration: none;
+    font-size: 25px;
+    color:white;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color:black;
+}
+
+.closebtn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 25px !important;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .closebtn {
+    font-size: 25px !important;
+    top: 0px;
+    right: 0px;
+  }
+}
+a:link {
+    text-decoration: none;
+    color:white;}
+a:visited {
+    text-decoration: none;
+    color:white;}
+
+#borderimg1 { min-width:800px;
+    border: 0px solid black;float:right;
+    width: 80%;}
+ 
+div.img {
+    margin: 6px;
+    border: 0px solid #ccc;
+    float:right;
+    width: ;}	 
+
+ul.tab {width: 100%;
+min-width:1100px;
+   list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: ;
+    border: 0px solid #ccc;
+    background-color: #6699ff;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {width:200px;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {width:200px;
+    background-color:#005ce6;
+}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {width:200px;
+    background-color: #005ce6;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 1px 1px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+div.img {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float:right;
+    width: 260px;
+    padding: 5px;
+    margin: 5px;
+    
+}
+
+div.img:hover {box-shadow: 0px 8px 16px 1px rgba(0,0,0,0.2);
+    border: 1px solid #777;
+}
+
+div.img img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {margin-top: 1px; 
+    padding: 10px;
+    text-align: left;
+}
+
+#footer {border: 0px solid #ccc;
+    padding: 1px;
+    color: black;
+    background-color: white;
+    clear: left;
+    text-align: center;}
+
+p {border: 1px solid #ccc;
+    padding: 5px; min-width: 1100px;
+    clear: left;
+    text-align: center;}
+
+p.one {border: 0px solid #ccc;
+     min-width: 1100px;}
+
+ * {box-sizing:border-box}
+
+.mySlides {display:none}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width:700px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+
+
+</style> 
+</head>
+<body> 
+
+
+
+<div id="header"> 
+<a>
+<img src="http://mysmartdeal.ucoz.net/mysmartdeallogo.jpg" style="width:200px;">
+</a>
+</div>
+
+
+<ul class="tab" >
+<div class="dropdown">
+
+
+  <button class="dropbtn">Today Smart Deal</button>
+  
+</div>
+
+<div class="dropdown">
+  <button class="dropbtn">Electronics</button>
+  <div class="dropdown-content">
+    <a href="#" style="color:#262626;">Mobile Phone</a>
+    <a href="#" style="color:#262626;"> Televisions </a>
+    <a href="#" style="color:#262626;"> Laptops </a>
+<a href="#" style="color:#262626;"> Cameras </a>
+    <a href="#" style="color:#262626;"> Headphone </a>
+    <a href="#" style="color:#262626;"> Speakers </a>
+<a href="#" style="color:#262626;"> Data  Storage </a>
+    <a href="#" style="color:#262626;"> Mobile  Accessories </a>
+    <a href="#" style="color:#262626;"> Camera Accessories </a>
+  </div></div>
+
+<div class="dropdown">
+  <button class="dropbtn">Men Fashion</button>
+  <div class="dropdown-content">
+    <a href="#" style="color:#262626;">Clothing</a>
+    <a href="#" style="color:#262626;"> Footwear </a>
+    <a href="#" style="color:#262626;"> Bags & Luggage </a>
+<a href="#" style="color:#262626;"> Men’s Grooming </a>
+    <a href="#" style="color:#262626;"> Eyewear </a>
+    <a href="#" style="color:#262626;"> Watches </a>
+<a href="#" style="color:#262626;"> Accessories </a>
+   
+  </div>
+</div>
+
+ <div class="dropdown">
+  <button class="dropbtn">Women Fashion</button>
+  <div class="dropdown-content">
+    <a href="#" style="color:#262626;">Ethnic Wear</a>
+    <a href="#" style="color:#262626;"> Western Wear </a>
+    <a href="#" style="color:#262626;"> Footwear </a>
+<a href="#" style="color:#262626;"> Eyewear </a>
+    <a href="#" style="color:#262626;"> Watches </a>
+    <a href="#" style="color:#262626;"> Handbags & Clutches </a>
+<a href="#" style="color:#262626;"> Beauty & Grooming </a>
+    <a href="#" style="color:#262626;">  Accessories </a>
+    
+  </div>
+</div>
+
+ <div class="dropdown">
+  <button class="dropbtn">Kids Product</button>
+  <div class="dropdown-content">
+    <a href="#" style="color:#262626;">Mobile Phone</a>
+    <a href="#" style="color:#262626;"> Televisions </a>
+    <a href="#" style="color:#262626;"> Laptops </a>
+<a href="#" style="color:#262626;"> Cameras </a>
+    <a href="#" style="color:#262626;"> Headphone </a>
+    <a href="#" style="color:#262626;"> Speakers </a>
+<a href="#" style="color:#262626;"> Data  Storage </a>
+    <a href="#" style="color:#262626;"> Mobile  Accessories </a>
+    <a href="#" style="color:#262626;"> Camera Accessories </a>
+  </div>
+</div>
+
+ <div class="dropdown">
+  <button class="dropbtn">Home Appliances</button>
+  <div class="dropdown-content">
+    <a href="#" style="color:#262626;">Mobile Phone</a>
+    <a href="#" style="color:#262626;"> Televisions </a>
+    <a href="#" style="color:#262626;"> Laptops </a>
+<a href="#" style="color:#262626;"> Cameras </a>
+    <a href="#" style="color:#262626;"> Headphone </a>
+    <a href="#" style="color:#262626;"> Speakers </a>
+<a href="#" style="color:#262626;"> Data  Storage </a>
+    <a href="#" style="color:#262626;"> Mobile  Accessories </a>
+    <a href="#" style="color:#262626;"> Camera Accessories </a>
+  </div>
+</div>
+
+
+<div class="dropdown">
+  <button class="dropbtn">Extra 1</button>
+  <div class="dropdown-content">
+    <a href="#" style="color:#262626;">Mobile Phone</a>
+    <a href="#" style="color:#262626;"> Televisions </a>
+    <a href="#" style="color:#262626;"> Laptops </a>
+<a href="#" style="color:#262626;"> Cameras </a>
+    <a href="#" style="color:#262626;"> Headphone </a>
+    <a href="#" style="color:#262626;"> Speakers </a>
+<a href="#" style="color:#262626;"> Data  Storage </a>
+    <a href="#" style="color:#262626;"> Mobile  Accessories </a>
+    <a href="#" style="color:#262626;"> Camera Accessories </a>
+  </div>
+</div>
+
+
+<div class="dropdown">
+  <button class="dropbtn">Extra 2</button>
+  <div class="dropdown-content">
+    <a href="#" style="color:#262626;">Mobile Phone</a>
+    <a href="#" style="color:#262626;"> Televisions </a>
+    <a href="#" style="color:#262626;"> Laptops </a>
+<a href="#" style="color:#262626;"> Cameras </a>
+    <a href="#" style="color:#262626;"> Headphone </a>
+    <a href="#" style="color:#262626;"> Speakers </a>
+<a href="#" style="color:#262626;"> Data  Storage </a>
+    <a href="#" style="color:#262626;"> Mobile  Accessories </a>
+    <a href="#" style="color:#262626;"> Camera Accessories </a>
+  </div>
+</div>
+
+
+</ul>
+ 
+ <div> <a href="#">
+            <img id="imgBanner" src="http://mysmartdeal.ucoz.net/demoimage.jpg" style='width: 100%; object-fit: contain'alt=“”/></a>
+        </div>
+
+
+
+<div id="myDIV" onscroll="myFunction()">
+  <div id="content">
+
+<table>
+  <tr>
+    <th> Electronics </th>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Mobile Phone </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Televisions </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Laptops</a> </td>
+    </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Cameras </a></td>
+    </tr>
+  <tr>
+    <td> <a href="#"style="color:#262626;">Headphone </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Speakers</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Data  Storage</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Mobile  Accessories</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Camera Accessories</a> </td>
+    </tr>
+
+<tr>
+    <th> Electronics </th>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Mobile Phone </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Televisions </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Laptops</a> </td>
+    </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Cameras </a></td>
+    </tr>
+  <tr>
+    <td> <a href="#"style="color:#262626;">Headphone </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Speakers</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Data  Storage</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Mobile  Accessories</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Camera Accessories</a> </td>
+    </tr>
+
+<tr>
+    <th> Electronics </th>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Mobile Phone </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Televisions </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Laptops</a> </td>
+    </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Cameras </a></td>
+    </tr>
+  <tr>
+    <td> <a href="#"style="color:#262626;">Headphone </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Speakers</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Data  Storage</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Mobile  Accessories</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Camera Accessories</a> </td>
+    </tr>
+
+<tr>
+    <th> Electronics </th>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Mobile Phone </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Televisions </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Laptops</a> </td>
+    </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Cameras </a></td>
+    </tr>
+  <tr>
+    <td> <a href="#"style="color:#262626;">Headphone </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Speakers</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Data  Storage</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Mobile  Accessories</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Camera Accessories</a> </td>
+    </tr>
+
+<tr>
+    <th> Electronics </th>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Mobile Phone </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Televisions </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Laptops</a> </td>
+    </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Cameras </a></td>
+    </tr>
+  <tr>
+    <td> <a href="#"style="color:#262626;">Headphone </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Speakers</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Data  Storage</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Mobile  Accessories</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Camera Accessories</a> </td>
+    </tr>
+
+<tr>
+    <th> Electronics </th>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Mobile Phone </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Televisions </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Laptops</a> </td>
+    </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Cameras </a></td>
+    </tr>
+  <tr>
+    <td> <a href="#"style="color:#262626;">Headphone </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Speakers</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Data  Storage</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Mobile  Accessories</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Camera Accessories</a> </td>
+    </tr>
+
+<tr>
+    <th> Electronics </th>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Mobile Phone </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Televisions </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Laptops</a> </td>
+    </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Cameras </a></td>
+    </tr>
+  <tr>
+    <td> <a href="#"style="color:#262626;">Headphone </a></td>
+   </tr>
+  <tr>
+    <td><a href="#"style="color:#262626;"> Speakers</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Data  Storage</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Mobile  Accessories</a> </td>
+    </tr>
+<tr>
+    <td><a href="#"style="color:#262626;"> Camera Accessories</a> </td>
+    </tr>
+
+
+</table>
+
+
+</div>
+</div>
+
+
+
+
+
+
+<div id="borderimg1">
+
+<div class="img">
+  <a target="_blank" href=“#”>
+    <img src="http://mysmartdeal.ucoz.net/images.jpeg" alt="Trolltunga Norway" >
+  </a>
+
+<div class="desc">Apple MacBook Pro MLVP2HN/A  New </div>
+
+
+ <div class="desc"><del>₹ 1,55,900.00</del> </div>
+
+ <div class="desc"><a1><b>₹ 1,47,500.00   (5.4% OFF)</b> </a1></div>
+
+<div class="desc"><small>Amazon india</small> </div>
+
+<a href="#" class="button">Shop Now</a>
+
+</div>
+
+
+
+
+<div class="img">
+  <a target="_blank" href=“#”>
+    <img src="http://mysmartdeal.ucoz.net/images.jpeg" alt="Trolltunga Norway" >
+  </a>
+
+<div class="desc">Apple MacBook Pro MLVP2HN/A  New </div>
+
+
+ <div class="desc"><del>₹ 1,55,900.00</del> </div>
+
+ <div class="desc"><a1><b>₹ 1,47,500.00   (5.4% OFF)</b> </a1></div>
+
+<div class="desc"><small>Amazon india</small> </div>
+
+<a href="#" class="button">Shop Now</a>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="img">
+  <a target="_blank" href=“#”>
+    <img src="http://mysmartdeal.ucoz.net/images.jpeg" alt="Trolltunga Norway" >
+  </a>
+
+
+ <div class="desc">Apple MacBook Pro MLVP2HN/A  New </div>
+
+
+ <div class="desc"><del>₹ 1,55,900.00</del> </div>
+
+ <div class="desc"><a1><b>₹ 1,47,500.00   (5.4% OFF)</b> </a1></div>
+
+<div class="desc"><small>Amazon india</small> </div>
+
+<a href="#" class="button">Shop Now</a>
+
+</div>
+
+
+
+
+
+
+
+<div class="img">
+  <a target="_blank" href=“#”>
+    <img src="http://mysmartdeal.ucoz.net/images.jpeg" alt="Trolltunga Norway" >
+  </a>
+
+
+ <div class="desc">Apple MacBook Pro MLVP2HN/A  New </div>
+
+
+ <div class="desc"><del>₹ 1,55,900.00</del> </div>
+
+ <div class="desc"><a1><b>₹ 1,47,500.00   (5.4% OFF)</b> </a1></div>
+
+<div class="desc"><small>Amazon india</small> </div>
+
+<a href="#" class="button">Shop Now</a>
+
+</div>
+
+
+
+
+
+
+<div class="img">
+  <a target="_blank" href=“#”>
+    <img src="http://mysmartdeal.ucoz.net/images.jpeg" alt="Trolltunga Norway" >
+  </a>
+
+
+ <div class="desc">Apple MacBook Pro MLVP2HN/A  New </div>
+
+
+ <div class="desc"><del>₹ 1,55,900.00</del> </div>
+
+ <div class="desc"><a1><b>₹ 1,47,500.00   (5.4% OFF)</b> </a1></div>
+
+<div class="desc"><small>Amazon india</small> </div>
+
+<a href="#" class="button">Shop Now</a>
+
+</div>
+
+
+
+
+
+
+<div class="img">
+  <a target="_blank" href=“#”>
+    <img src="http://mysmartdeal.ucoz.net/images.jpeg" alt="Trolltunga Norway" >
+  </a>
+
+
+ <div class="desc">Apple MacBook Pro MLVP2HN/A  New </div>
+
+
+ <div class="desc"><del>₹ 1,55,900.00</del> </div>
+
+ <div class="desc"><a1><b>₹ 1,47,500.00   (5.4% OFF)</b> </a1></div>
+
+<div class="desc"><small>Amazon india</small> </div>
+
+<a href="#" class="button">Shop Now</a>
+
+</div>
+
+
+
+
+
+
+<div class="img">
+  <a target="_blank" href=“#”>
+    <img src="http://mysmartdeal.ucoz.net/images.jpeg" alt="Trolltunga Norway" >
+  </a>
+
+
+ <div class="desc">Apple MacBook Pro MLVP2HN/A  New </div>
+
+
+ <div class="desc"><del>₹ 1,55,900.00</del> </div>
+
+ <div class="desc"><a1><b>₹ 1,47,500.00   (5.4% OFF)</b> </a1></div>
+
+<div class="desc"><small>Amazon india</small> </div>
+
+<a href="#" class="button">Shop Now</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="img">
+  <a target="_blank" href=“#”>
+    <img src="http://mysmartdeal.ucoz.net/images.jpeg" alt="Trolltunga Norway" >
+  </a>
+
+
+ <div class="desc">Apple MacBook Pro MLVP2HN/A  New </div>
+
+
+ <div class="desc"><del>₹ 1,55,900.00</del> </div>
+
+ <div class="desc"><a1><b>₹ 1,47,500.00   (5.4% OFF)</b> </a1></div>
+
+<div class="desc"><small>Amazon india</small> </div>
+
+<a href="#" class="button">Shop Now</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="img">
+  <a target="_blank" href=“#”>
+    <img src="http://mysmartdeal.ucoz.net/images.jpeg" alt="Trolltunga Norway" >
+  </a>
+
+
+ <div class="desc">Apple MacBook Pro MLVP2HN/A  New </div>
+
+
+ <div class="desc"><del>₹ 1,55,900.00</del> </div>
+
+ <div class="desc"><a1><b>₹ 1,47,500.00   (5.4% OFF)</b> </a1></div>
+
+<div class="desc"><small>Amazon india</small> </div>
+
+<a href="#" class="button">Shop Now</a>
+
+</div>
+
+
+
+
+
+
+
+<div class="img">
+  <a target="_blank" href=“#”>
+    <img src="http://mysmartdeal.ucoz.net/images.jpeg" alt="Trolltunga Norway" >
+  </a>
+
+
+ <div class="desc">Apple MacBook Pro MLVP2HN/A  New </div>
+
+
+ <div class="desc"><del>₹ 1,55,900.00</del> </div>
+
+ <div class="desc"><a1><b>₹ 1,47,500.00   (5.4% OFF)</b> </a1></div>
+
+<div class="desc"><small>Amazon india</small> </div>
+
+<a href="#" class="button">Shop Now</a>
+
+</div>
+
+
+
+
+
+
+<div class="img">
+  <a target="_blank" href=“#”>
+    <img src="http://mysmartdeal.ucoz.net/images.jpeg" alt="Trolltunga Norway" >
+  </a>
+
+
+ <div class="desc">Apple MacBook Pro MLVP2HN/A  New </div>
+
+
+ <div class="desc"><del>₹ 1,55,900.00</del> </div>
+
+ <div class="desc"><a1><b>₹ 1,47,500.00   (5.4% OFF)</b> </a1></div>
+
+<div class="desc"><small>Amazon india</small> </div>
+
+<a href="#" class="button">Shop Now</a>
+
+</div>
+
+
+
+
+
+
+
+<div class="img">
+  <a target="_blank" href=“#”>
+    <img src="http://mysmartdeal.ucoz.net/images.jpeg" alt="Trolltunga Norway" >
+  </a>
+
+
+ <div class="desc">Apple MacBook Pro MLVP2HN/A  New </div>
+
+
+ <div class="desc"><del>₹ 1,55,900.00</del> </div>
+
+ <div class="desc"><a1><b>₹ 1,47,500.00   (5.4% OFF)</b> </a1></div>
+
+<div class="desc"><small>Amazon india</small> </div>
+
+<a href="#" class="button">Shop Now</a>
+
+</div>
+
+
+
+
+
+
+
+<div class="img">
+  <a target="_blank" href=“#”>
+    <img src="http://mysmartdeal.ucoz.net/images.jpeg" alt="Trolltunga Norway" >
+  </a>
+
+
+ <div class="desc">Apple MacBook Pro MLVP2HN/A  New </div>
+
+
+ <div class="desc"><del>₹ 1,55,900.00</del> </div>
+
+ <div class="desc"><a1><b>₹ 1,47,500.00   (5.4% OFF)</b> </a1></div>
+
+<div class="desc"><small>Amazon india</small> </div>
+
+<a href="#" class="button">Shop Now</a>
+
+</div>
+
+
+
+
+
+
+<div class="img">
+  <a target="_blank" href=“#”>
+    <img src="http://mysmartdeal.ucoz.net/images.jpeg" alt="Trolltunga Norway" >
+  </a>
+
+
+ <div class="desc">Apple MacBook Pro MLVP2HN/A  New </div>
+
+
+ <div class="desc"><del>₹ 1,55,900.00</del> </div>
+
+ <div class="desc"><a1><b>₹ 1,47,500.00   (5.4% OFF)</b> </a1></div>
+
+<div class="desc"><small>Amazon india</small> </div>
+
+<a href="#" class="button">Shop Now</a>
+
+</div>
+
+
+
+
+
+
+
+<div class="img">
+  <a target="_blank" href=“#”>
+    <img src="http://mysmartdeal.ucoz.net/images.jpeg" alt="Trolltunga Norway" >
+  </a>
+
+
+ <div class="desc">Apple MacBook Pro MLVP2HN/A  New </div>
+
+
+ <div class="desc"><del>₹ 1,55,900.00</del> </div>
+
+ <div class="desc"><a1><b>₹ 1,47,500.00   (5.4% OFF)</b> </a1></div>
+
+<div class="desc"><small>Amazon india</small> </div>
+
+<a href="#" class="button">Shop Now</a>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="footer">
+
+<img src="http://mysmartdeal.ucoz.net/PicsArt_12-15-11.48.43.png" alt="Mountain View" style="width:304px;padding: 25px;">
+<img src="http://mysmartdeal.ucoz.net/PicsArt_12-15-11.30.47.jpg" alt="Mountain View" style="width:304px;padding: 25px;">
+<img src="http://mysmartdeal.ucoz.net/PicsArt_12-16-12.02.41.png" alt="Mountain View" style="width:304px;padding: 25px;">
+
+<br>
+
+
+<p>
+
+<a href=“#” style="padding-right: 2cm;color: black;">Home</a>|
+<a href=“#” style="padding-right: 2cm;padding-left: 2cm;color: black;">About Us</a>|
+<a href=“#” style="padding-right: 2cm;padding-left: 2cm;color: black;">Contact Us</a>|
+<a href=“#” style="padding-left: 2cm;color: black;">Privacy Policy</a>
+
+</p>
+
+
+
+
+
+<a><small>Copyright 2017 | All Rights Reserved mysmartdeal.com Trademarks and brands are the property of their respective owners.</small></a>
+</div>
+
+
+
+<script>
+function myFunction() {
+    var elmnt = document.getElementById("myDIV");
+    var x = elmnt.scrollLeft;
+    var y = elmnt.scrollTop;
+    document.getElementById ("demo").innerHTML = "Horizontally: " + x + "px<br>Vertically: " + y + "px";
+}
+</script>
+
+
+
+</body>
+</html> 
